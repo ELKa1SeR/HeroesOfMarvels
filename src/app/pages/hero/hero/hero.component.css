@@ -7,4 +7,23 @@
 
 }
 
+.ficha{
+  width: 100%;
+  display: flex;
+  background-color: black;
+  justify-self: start;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: center;
 
+}
+
+.body{
+  display: flex;
+  width: 101%;
+  padding: 1px;
+  padding-right: 8px;
+
+}
