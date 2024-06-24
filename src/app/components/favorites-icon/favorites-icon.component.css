@@ -1,0 +1,41 @@
+/* src/app/favorites-icon/favorites-icon.component.css */
+.favorites-icon {
+  width: 30px;
+  height: 30px;
+  position: relative;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.favorites-icon:before,
+.favorites-icon:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  width: 15px;
+  height: 24px;
+  
+  background-color: rgb(255, 255, 255);
+  border-radius: 15px 15px 0 0;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.favorites-icon:before {
+  left: 1;
+  transform: rotate(-50deg);
+}
+
+.favorites-icon:after {
+  right: 0;
+  transform: rotate(50deg);
+}
+
+.favorites-icon.favorite:before,
+.favorites-icon.favorite:after {
+  background-color: red;
+}
+
+
+
+

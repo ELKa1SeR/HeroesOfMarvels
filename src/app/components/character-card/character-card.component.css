@@ -1,0 +1,68 @@
+.card-character {
+  position: relative; /* Añade posición relativa para que los elementos absolutos se posicionen correctamente */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  color: rgb(255, 255, 255);
+  padding-top: 20px;
+  border: solid;
+  border-width: 1px; /* Ancho del borde general */
+  overflow: hidden; /* Oculta cualquier contenido que se extienda fuera del contenedor */
+  box-shadow: -5px 0 10px -5px rgba(0, 0, 0, 0.5);
+}
+
+.card-character:hover .info-character {
+  background-color: red; /* Cambia el fondo a rojo al pasar el cursor sobre .card-character */
+}
+
+.card-character::before {
+  content: '';
+  position: absolute;
+  bottom: -1px; /* Ajusta la posición para que el triángulo esté alineado con el borde inferior */
+  right: -1px; /* Ajusta la posición para que el triángulo esté alineado con el borde derecho */
+  width: 0; /* Ancho inicial del triángulo, se aumentará a medida que se defina el tamaño del borde */
+  height: 0; /* Altura inicial del triángulo */
+  border-style: solid;
+  border-width: 0 0 35px 35px; /* Definición de los bordes para formar un triángulo invertido */
+  border-color: transparent transparent rgb(254, 253, 253); /* Colores de los bordes: transparente, transparente, blanco, transparente */
+}
+
+.img-character {
+  width: 80%; /* Ajusta el contenedor de la imagen si es necesario */
+  display: flex;
+  justify-content: center; /* Centra la imagen horizontalmente */
+}
+
+.character-image {
+  width: 50px; /* Ajusta el tamaño de la imagen como desees */
+  height: auto; /* Mantiene la proporción de la imagen */
+}
+
+.red-line {
+  width: 100%;
+  height: 10px;
+  background-color: red; /* Estilo de la línea roja */
+  /* Espacio alrededor de la línea */
+}
+
+.info-character {
+  text-align: center;
+  display: flex;
+  justify-content: space-around;
+  padding-bottom: 40px;
+  background-color: black;
+  width: 100%;
+  transition: background-color 0.3s ease; /* Transición suave para el cambio de color */
+  /* Otros estilos necesarios para la información del personaje */
+}
+
+.name h1 {
+  font-size: 24px; /* Ajusta el tamaño de la fuente del nombre */
+  padding-right: 100px;
+  color: white;
+}
+
+.favorite {
+  margin-top: 10px; /* Ajusta el espacio encima del ícono de favoritos */
+}
