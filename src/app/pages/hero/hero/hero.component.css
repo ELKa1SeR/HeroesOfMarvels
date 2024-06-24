@@ -4,11 +4,10 @@
   justify-content: flex-start;
   align-items: stretch; /* Asegura que los elementos hijos ocupen todo el ancho disponible */
   width: 101%;
-
 }
 
-.ficha{
-  width: 100%;
+.ficha {
+  width: 200%;
   display: flex;
   background-color: black;
   justify-self: start;
@@ -17,13 +16,69 @@
   flex-wrap: wrap;
   justify-content: center;
   align-content: center;
-
+  position: relative; /* Añade posición relativa para que los elementos absolutos se posicionen correctamente */
 }
 
-.body{
+.ficha::before {
+  content: '';
+  position: absolute;
+  bottom: -1px; /* Ajusta la posición para que el triángulo esté alineado con el borde inferior */
+  right: -1px; /* Ajusta la posición para que el triángulo esté alineado con el borde derecho */
+  width: 0; /* Ancho inicial del triángulo, se aumentará a medida que se defina el tamaño del borde */
+  height: 0; /* Altura inicial del triángulo */
+  border-style: solid;
+  border-width: 0 0 35px 35px; /* Definición de los bordes para formar un triángulo invertido */
+  border-color: transparent transparent rgb(254, 253, 253); /* Colores de los bordes: transparente, transparente, blanco, transparente */
+}
+
+.body {
   display: flex;
   width: 101%;
-  padding: 1px;
   padding-right: 8px;
+}
 
+.image {
+  padding-top: 2px;
+}
+
+.hero {
+  width: 400px;
+  display: flex;
+  padding-left: 40px;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.title {
+  display: flex;
+  color: white;
+  font-family: 'Raleway', sans-serif;
+  font-size: 20px;
+  line-height: 50px;
+  font-weight: bolder;
+}
+
+.description {
+  color: white;
+  font-family: 'Raleway', sans-serif;
+  font-size: 16px;
+  line-height: 50px;
+}
+
+.icon {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: flex-start;
+}
+
+
+.Tcomics{
+  color: black;
+  font-family: 'Raleway', sans-serif;
+  font-size: 20px;
+  line-height: 50px;
+  font-weight: bolder;
 }

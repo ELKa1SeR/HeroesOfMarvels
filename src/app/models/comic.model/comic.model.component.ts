@@ -7,7 +7,7 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   imports: [
     CommonModule,
   ],
-  template: `<p>comic.model works!</p>`,
+  template: ``,
   styleUrl: './comic.model.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
