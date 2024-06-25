@@ -1,16 +1,15 @@
-<div class="card-character">
+<div class="card-character" *ngIf="hero">
   <div class="img-character">
-    <img src="../../../assets/Ultimate SpiderMan_resized (1).jpg">
+    <img [src]="hero.thumbnail.path + '.' + hero.thumbnail.extension" [alt]="hero.name">
   </div>
-  <div class="red-line">
-
-  </div>
+  <div class="red-line"></div>
   <div class="info-character">
     <div class="name">
-      <h1>Spiderman</h1>
+      <h1>{{ hero.name }}</h1>
     </div>
     <div class="favorite">
       <app-favorites-icon></app-favorites-icon>
     </div>
   </div>
 </div>
+

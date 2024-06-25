@@ -1,14 +1,21 @@
-import { CommonModule } from '@angular/common';
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { MarvelApiService } from '../../services/marvel-api.service';
+import { HeroResult } from '../../interfaces/hero.interface';
 
 @Component({
-  selector: 'app-character.model',
-  standalone: true,
-  imports: [
-    CommonModule,
-  ],
-  template: `<p>character.model works!</p>`,
-  styleUrl: './character.model.component.css',
-  changeDetection: ChangeDetectionStrategy.OnPush,
+  selector: 'app-character-model',
+  templateUrl: './character.html',
+  styleUrls: ['./character.model.component.css']
 })
-export class CharacterModelComponent { }
+export class CharacterModelComponent implements OnInit {
+  heroes: HeroResult[] = [];
+
+  constructor(private marvelApiService: MarvelApiService) {}
+
+  ngOnInit(): void {
+    this.marvelApiService.getHeroes().subscribe((heroes) => {
+      this.heroes = heroes;
+    });
+  }
+}
+

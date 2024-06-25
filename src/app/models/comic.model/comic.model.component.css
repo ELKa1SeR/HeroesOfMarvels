@@ -1,18 +1,21 @@
-/* app.component.css */
-.image-gallery {
+.comic-gallery {
   display: flex;
   gap: 10px;
   margin-bottom: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
-.image-gallery img {
+.comic-gallery img {
   cursor: pointer;
   width: 100px;
   height: auto;
   transition: transform 0.3s ease;
+  border: 1px solid #ccc;
+  border-radius: 5px;
 }
 
-.image-gallery img:hover {
+.comic-gallery img:hover {
   transform: scale(1.1);
 }
 
@@ -24,6 +27,7 @@
   border: 1px solid #ccc;
   border-radius: 5px;
   overflow: hidden;
+  margin-top: 20px;
 }
 
 .progress-bar {

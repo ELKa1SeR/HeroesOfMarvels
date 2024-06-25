@@ -1,0 +1,11 @@
+<div class="comic-gallery">
+  <img *ngFor="let comic of comics; let i = index"
+       [src]="comic.thumbnail.path + '.' + comic.thumbnail.extension"
+       (click)="selectComic(i)"
+       alt="Comic {{ comic.title }}">
+</div>
+<div class="progress-container" *ngIf="comics.length > 0">
+  <div class="progress-bar" [style.width]="progressWidth + '%'"></div>
+  <div class="progress-text">{{ selectedComicIndex }}/{{ comics.length }}</div>
+</div>
+

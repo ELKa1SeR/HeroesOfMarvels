@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -12,25 +12,36 @@ import { ResultComponentComponent } from './components/result-character/result-c
 import { HomeComponent } from './pages/home/home/home.component';
 import { HeroComponent } from './pages/hero/hero/hero.component';
 import { CabeceraComponent } from './components/cabecera/cabecera.component';
+import { ComicModelComponent } from "./models/comic.model/comic.model.component";
+import {  HttpClientModule } from '@angular/common/http';
+import { MarvelApiService } from './services/marvel-api.service';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    FavoritesIconComponent,
-    SearchBarComponent,
-    CharacterCardComponent,
-    MarvelLogoComponent,
-    FavoritesCountComponent,
-    ResultComponentComponent,
-    HomeComponent,
-    HeroComponent,
-    CabeceraComponent,
+      AppComponent,
+      FavoritesIconComponent,
+      SearchBarComponent,
+      CharacterCardComponent,
+      MarvelLogoComponent,
+      FavoritesCountComponent,
+      ResultComponentComponent,
+      HomeComponent,
+      HeroComponent,
+      CabeceraComponent,
+      ComicModelComponent
+
   ],
+  providers: [MarvelApiService],
+  bootstrap: [AppComponent],
   imports: [
-    BrowserModule,
-    AppRoutingModule
+      BrowserModule,
+      AppRoutingModule,
+      HttpClientModule,
+
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  schemas: [
+    CUSTOM_ELEMENTS_SCHEMA
+  ],
 })
 export class AppModule { }
+
