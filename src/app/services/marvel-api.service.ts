@@ -13,7 +13,9 @@ import { Hero, HeroResult } from '../interfaces/hero.interface';
 })
 export class MarvelApiService {
   private apiUrl = environments.PUBLIC_API_COMIC;
-  private apiUrlHeroes = environments.PUBLIC_API_CHARACTER
+  private apiUrlHeroes = environments.PUBLIC_API_CHARACTER;
+  private apiUrlHeroes50 = environments.PUBLIC_API_CHARACTER50;
+
   constructor(private http: HttpClient) {}
 
   getComics(): Observable<ComicResult[]> {
@@ -21,8 +23,9 @@ export class MarvelApiService {
       .pipe(map(response => response.data.results));
   }
 
-  getHeroes(): Observable<HeroResult[]> {
-    return this.http.get<Hero>(`${this.apiUrlHeroes}`)
+  getHeroes(limit: number = 50): Observable<HeroResult[]> {
+    const apiUrl = limit === 50 ? this.apiUrlHeroes50 : `${this.apiUrlHeroes}&limit=${limit}`;
+    return this.http.get<Hero>(apiUrl)
       .pipe(map(response => response.data.results));
   }
 

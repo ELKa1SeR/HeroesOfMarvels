@@ -1,3 +1,16 @@
-<div class="heroes-container">
-  <app-character-card *ngFor="let hero of heroes" [hero]="hero"></app-character-card>
+<!-- character.html -->
+<div  class="heroes-container">
+  <div *ngFor="let hero of heroes"  class="card-character">
+    <img [src]="hero.thumbnail.path + '.' + hero.thumbnail.extension" class="character-image">
+
+    <div class="red-line"></div>
+    <div class="info-character">
+      <div class="name">
+        <h1>{{ hero.name }}</h1>
+      </div>
+      <div class="favorite">
+        <app-favorites-icon></app-favorites-icon>
+      </div>
+    </div>
+  </div>
 </div>

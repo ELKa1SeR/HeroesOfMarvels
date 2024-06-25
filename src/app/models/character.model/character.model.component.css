@@ -1,25 +1,73 @@
+/* character.model.component.css */
 .heroes-container {
   display: grid;
   gap: 1rem;
   padding: 1rem;
 }
 
-.hero {
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  padding: 1rem;
+.card-character {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 300px;
+  color:  rgb(255, 255, 255);
+
+  border: solid;
+  border-width: 1px;
+  overflow: hidden;
+  box-shadow: -5px 0 10px -5px rgba(0, 0, 0, 0.5);
+}
+
+.card-character:hover .info-character {
+  background-color: red;
+}
+
+.card-character::before {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  right: -1px;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 0 35px 35px;
+  border-color: transparent transparent rgb(254, 253, 253);
+}
+
+
+.character-image {
+  width: 300px;
+  height: auto;
+}
+
+.red-line {
+  width: 100%;
+  height: 10px;
+  background-color: red;
+}
+
+.info-character {
   text-align: center;
+  display: flex;
+  justify-content: space-around;
+  padding-bottom: 40px;
+  background-color: black;
+  width: 100%;
+  transition: background-color 0.3s ease;
 }
 
-@media (min-width: 768px) {
-  .heroes-container {
-    grid-template-columns: repeat(2, 1fr);
-  }
+.name  {
+  width: 80%;
 }
 
-@media (min-width: 1024px) {
-  .heroes-container {
-    grid-template-columns: repeat(7, 1fr);
-  }
+.name h1 {
+  font-size: 24px;
+  padding-right: 100px;
+  color: white;
 }
 
+.favorite {
+  margin-top: 10px;
+  width: 20%;
+}

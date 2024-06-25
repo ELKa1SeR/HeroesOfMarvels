@@ -1,3 +1,4 @@
+// character.model.component.ts
 import { Component, OnInit } from '@angular/core';
 import { MarvelApiService } from '../../services/marvel-api.service';
 import { HeroResult } from '../../interfaces/hero.interface';
@@ -14,8 +15,10 @@ export class CharacterModelComponent implements OnInit {
 
   ngOnInit(): void {
     this.marvelApiService.getHeroes().subscribe((heroes) => {
-      this.heroes = heroes;
+      console.log('Heroes received:', heroes);  // Esto debería mostrar una lista de héroes
+      this.heroes = heroes.map(chat => ({
+        ...chat
+      }))
     });
   }
 }
-

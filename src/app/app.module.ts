@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FavoritesIconComponent } from './components/favorites-icon/favorites-icon.component';
 import { SearchBarComponent } from './components/search-bar/search-bar.component';
-import { CharacterCardComponent } from './components/character-card/character-card.component';
+
 import { MarvelLogoComponent } from './components/marvel-logo/marvel-logo.component';
 import { FavoritesCountComponent } from './components/favorites-count/favorites-count';
 import { ResultComponentComponent } from './components/result-character/result-component/result-component.component';
@@ -15,20 +15,23 @@ import { CabeceraComponent } from './components/cabecera/cabecera.component';
 import { ComicModelComponent } from "./models/comic.model/comic.model.component";
 import {  HttpClientModule } from '@angular/common/http';
 import { MarvelApiService } from './services/marvel-api.service';
+import { CharacterCardComponent } from './components/character-card/character-card.component';
+import { CharacterModelComponent } from './models/character.model/character.model.component';
 
 @NgModule({
   declarations: [
       AppComponent,
       FavoritesIconComponent,
       SearchBarComponent,
-      CharacterCardComponent,
       MarvelLogoComponent,
       FavoritesCountComponent,
       ResultComponentComponent,
       HomeComponent,
       HeroComponent,
       CabeceraComponent,
-      ComicModelComponent
+      ComicModelComponent,
+      CharacterCardComponent,
+      CharacterModelComponent,
 
   ],
   providers: [MarvelApiService],
@@ -38,10 +41,11 @@ import { MarvelApiService } from './services/marvel-api.service';
       AppRoutingModule,
       HttpClientModule,
 
+
+
   ],
-  schemas: [
-    CUSTOM_ELEMENTS_SCHEMA
-  ],
+  exports:[CharacterCardComponent],
+
 })
 export class AppModule { }
 
