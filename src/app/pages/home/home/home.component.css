@@ -6,10 +6,13 @@
   width: 101%;
 
 }
+.body{
+  display: flex;
+}
 
 .search {
 display: flex;
-width: 102%;
+width: 100%;
 }
 
 .result{
@@ -18,8 +21,8 @@ width: 102%;
 
 .card{
   padding-top: 20px;
-  display: flex;
-  width: 70%;
+ 
+  width: 100%;
 
 }
 
