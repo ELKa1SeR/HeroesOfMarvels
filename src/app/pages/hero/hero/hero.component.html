@@ -1,36 +1,38 @@
 <div class="container">
   <app-cabecera></app-cabecera>
 
-  <div class="body">
-    <div class="ficha">
-      <div class="image">
-        <img src="../../../../assets/Ultimate SpiderMan_resized (1).jpg" >
-      </div>
-      <div class="hero">
-        <div class="title">
-          <h1>SPIDERMAN</h1>
-        </div>
+  <div class="body" *ngIf="!hero">
+    <p>Cargando...</p>
+  </div>
 
-        <div class="icon">
+  <div *ngIf="hero">
+    <div class="body">
+      <div class="ficha">
+        <div class="image">
+          <img [src]="hero.thumbnail.path + '.' + hero.thumbnail.extension">
+        </div>
+        <div class="hero">
+          <div class="title">
+            <h1>{{ hero.name }}</h1>
+          </div>
+          <div class="icon">
             <app-favorites-icon></app-favorites-icon>
-        </div>
-
-
-        <div class="description">
-          <p> fgfdgfgdh fgfdhgfgh dghfgdhfgdhdfg</p>
+          </div>
+          <div class="description">
+            <p>{{ hero.description }}</p>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-  <div class="comics">
-    <div class="Tcomics">COMICS</div>
-    <div class="comiclist"></div>
-    <div>
-      <app-comic-model></app-comic-model>
+    <div class="comics">
+      <div class="Tcomics">COMICS</div>
+      <div class="comiclist"></div>
+      <div>
+        <!-- para pasar una variable de un componente a otro -->
+        <app-comic-model [heroId]="hero.id"></app-comic-model>
+      </div>
     </div>
-
   </div>
-
 
 
 </div>

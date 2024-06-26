@@ -1,7 +1,7 @@
 <!-- character.html -->
 <div  class="heroes-container">
-  <div *ngFor="let hero of heroes"  class="card-character">
-    <img [src]="hero.thumbnail.path + '.' + hero.thumbnail.extension" class="character-image">
+  <div *ngFor="let hero of heroes" routerLink='/hero/{{hero.id}}' class="card-character" (click)="onSelectedHero(hero)  ">
+    <img [src]="hero.thumbnail.path + '.' + hero.thumbnail.extension" class="character-image" >
 
     <div class="card-bottom">
       <div class="red-line"></div>

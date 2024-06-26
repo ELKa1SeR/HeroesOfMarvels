@@ -2,6 +2,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MarvelApiService } from '../../services/marvel-api.service';
 import { HeroResult } from '../../interfaces/hero.interface';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-character-model',
@@ -9,9 +10,10 @@ import { HeroResult } from '../../interfaces/hero.interface';
   styleUrls: ['./character.model.component.css']
 })
 export class CharacterModelComponent implements OnInit {
+
   heroes: HeroResult[] = [];
 
-  constructor(private marvelApiService: MarvelApiService) {}
+  constructor(private marvelApiService: MarvelApiService, private router: Router) {}
 
   ngOnInit(): void {
     this.marvelApiService.getHeroes().subscribe((heroes) => {
@@ -20,5 +22,9 @@ export class CharacterModelComponent implements OnInit {
         ...chat
       }))
     });
+  }
+
+  onSelectedHero( hero: HeroResult) {
+    this.router.navigate(['/hero',hero.id]);
   }
 }

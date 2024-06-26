@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit, input } from '@angular/core';
 import { ComicResult } from '../../interfaces/comics.interface';
 import { MarvelApiService } from '../../services/marvel-api.service';
+import { ComicsItem } from '../../interfaces/hero.interface';
 
 @Component({
   selector: 'app-comic-model',
@@ -8,13 +9,19 @@ import { MarvelApiService } from '../../services/marvel-api.service';
   styleUrls: ['./comic.model.component.css'],
 })
 export class ComicModelComponent implements OnInit {
+
+  @Input()
+  heroId!: number;
+
   comics: ComicResult[] = [];
+
   selectedComicIndex: number = 0;
 
   constructor(private marvelService: MarvelApiService) {}
 
   ngOnInit() {
-    this.marvelService.getComics().subscribe(data => {
+
+    this.marvelService.getComicsByHeroId(this.heroId).subscribe((data) => {
       this.comics = data;
     });
   }

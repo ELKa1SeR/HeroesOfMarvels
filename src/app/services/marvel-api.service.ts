@@ -12,22 +12,33 @@ import { Hero, HeroResult } from '../interfaces/hero.interface';
   providedIn: 'root'
 })
 export class MarvelApiService {
+
   private apiUrl = environments.PUBLIC_API_COMIC;
   private apiUrlHeroes = environments.PUBLIC_API_CHARACTER;
   private apiUrlHeroes50 = environments.PUBLIC_API_CHARACTER50;
+  private baseUrl = environments.BASE_URL;
+  private apiKey = environments.APIKEY;
+
 
   constructor(private http: HttpClient) {}
-
-  getComics(): Observable<ComicResult[]> {
-    return this.http.get<Comic>(`${this.apiUrl}`)
-      .pipe(map(response => response.data.results));
-  }
 
   getHeroes(limit: number = 50): Observable<HeroResult[]> {
     const apiUrl = limit === 50 ? this.apiUrlHeroes50 : `${this.apiUrlHeroes}&limit=${limit}`;
     return this.http.get<Hero>(apiUrl)
       .pipe(map(response => response.data.results));
   }
+
+  getHeroById(id: number): Observable<HeroResult> {
+    return this.http.get<Hero>(`${this.baseUrl}/${id}?${this.apiKey}`)
+      .pipe(map(response => response.data.results[0]));
+  }
+
+  getComicsByHeroId(heroId: number): Observable<ComicResult[]>{
+    return this.http.get<Comic>(`${this.baseUrl}/${heroId}/comics?${this.apiKey}`)
+      .pipe(map(response => response.data.results));
+
+  }
+
 
 
 }

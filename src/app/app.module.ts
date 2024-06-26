@@ -17,6 +17,7 @@ import {  HttpClientModule } from '@angular/common/http';
 import { MarvelApiService } from './services/marvel-api.service';
 import { CharacterCardComponent } from './components/character-card/character-card.component';
 import { CharacterModelComponent } from './models/character.model/character.model.component';
+import { DetailModelComponent } from './models/detail.model/detail.model';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { CharacterModelComponent } from './models/character.model/character.mode
       ComicModelComponent,
       CharacterCardComponent,
       CharacterModelComponent,
+      DetailModelComponent,
 
   ],
   providers: [MarvelApiService],
