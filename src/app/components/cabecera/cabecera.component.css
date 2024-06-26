@@ -3,7 +3,7 @@
   flex-direction: column;
   justify-content: flex-start;
   align-items: stretch; /* Asegura que los elementos hijos ocupen todo el ancho disponible */
-  width: 101%;
+  width: 100%;
 
 }
 
