@@ -1,18 +1,24 @@
 .container {
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-  align-items: stretch; /* Asegura que los elementos hijos ocupen todo el ancho disponible */
+  justify-content: center;
+
   width: 100%;
 
 }
+
+/* .container>div{
+  width: 100%;
+} */
+
 .body{
-  display: flex;
+  margin-right: 3%;
+  margin-left: 3%;
 }
 
 .search {
-display: flex;
 width: 100%;
+
 }
 
 .result{

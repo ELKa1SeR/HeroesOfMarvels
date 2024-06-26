@@ -5,7 +5,6 @@
   object-fit: cover;
 }
 
-
 .heroes-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); /* Ajusta dinámicamente las columnas */

@@ -1,1 +1,6 @@
-/* You can add global styles to this file, and also import other style files */
+/* las paginas por defecto tienen un padding y un margin, y ponerle 0 lo resetea */
+
+body{
+  margin: 0;
+  padding: 0;
+}
