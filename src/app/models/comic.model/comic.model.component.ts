@@ -1,7 +1,6 @@
 import { Component, Input, OnInit, input } from '@angular/core';
 import { ComicResult } from '../../interfaces/comics.interface';
 import { MarvelApiService } from '../../services/marvel-api.service';
-import { ComicsItem } from '../../interfaces/hero.interface';
 
 @Component({
   selector: 'app-comic-model',
@@ -23,6 +22,7 @@ export class ComicModelComponent implements OnInit {
 
     this.marvelService.getComicsByHeroId(this.heroId).subscribe((data) => {
       this.comics = data;
+
     });
   }
 

@@ -22,11 +22,27 @@ export class MarvelApiService {
 
   constructor(private http: HttpClient) {}
 
-  getHeroes(limit: number = 50): Observable<HeroResult[]> {
-    const apiUrl = limit === 50 ? this.apiUrlHeroes50 : `${this.apiUrlHeroes}&limit=${limit}`;
+
+
+  getHeroes(limit: number = 89): Observable<HeroResult[]> {
+    const apiUrl = limit === 90 ? this.apiUrlHeroes : `${this.apiUrlHeroes}&limit=${limit}`;
     return this.http.get<Hero>(apiUrl)
-      .pipe(map(response => response.data.results));
+      .pipe(map(response => response.data.results),
+        map((results: HeroResult[]) => results.filter(hero => hero.thumbnail?.path && !hero.thumbnail.path.includes('image_not_available'))),
+        map((results: HeroResult[]) => this.shuffleArray(results)),
+        map((results: HeroResult[]) => results.slice(0, limit))
+
+    );
   }
+
+  shuffleArray(results: HeroResult[]): HeroResult[] {
+    if (results.length === 0) {
+      return [];
+    }
+
+    return results.sort((a, b) => a.name.localeCompare(b.name));
+  }
+
 
   getHeroById(id: number): Observable<HeroResult> {
     return this.http.get<Hero>(`${this.baseUrl}/${id}?${this.apiKey}`)
@@ -38,6 +54,8 @@ export class MarvelApiService {
       .pipe(map(response => response.data.results));
 
   }
+
+
 
 
 
