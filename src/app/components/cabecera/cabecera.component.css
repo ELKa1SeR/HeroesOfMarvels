@@ -21,11 +21,12 @@
 
 .left {
   display: flex;
+  padding-left: 30px;
 }
 
 .right {
   display: flex;
-
+padding-right: 30px;
 }
 
 .count{
