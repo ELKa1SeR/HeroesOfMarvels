@@ -15,7 +15,7 @@ export class MarvelApiService {
 
   private apiUrl = environments.PUBLIC_API_COMIC;
   private apiUrlHeroes = environments.PUBLIC_API_CHARACTER;
-  private apiUrlHeroes50 = environments.PUBLIC_API_CHARACTER50;
+  // private apiUrlHeroes50 = environments.PUBLIC_API_CHARACTER50;
   private baseUrl = environments.BASE_URL;
   private apiKey = environments.APIKEY;
 
@@ -49,12 +49,12 @@ export class MarvelApiService {
       .pipe(map(response => response.data.results[0]));
   }
 
+  // no toco la funcionalidad porque por defecto me trae 20 comics de limite ( comprobado con el postman)
   getComicsByHeroId(heroId: number): Observable<ComicResult[]>{
     return this.http.get<Comic>(`${this.baseUrl}/${heroId}/comics?${this.apiKey}`)
       .pipe(map(response => response.data.results));
 
   }
-
 
 
 

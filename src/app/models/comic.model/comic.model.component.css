@@ -1,16 +1,20 @@
 @media (min-width: 1024px) {
   .comic-gallery {
-    display: flex;
-    gap: 10px;
-    margin-bottom: 20px;
-    flex-wrap: wrap;
-    justify-content: center;
+    .comic-gallery {
+      display: flex;
+      /* gap: 10px; */
+      /* margin-bottom: 20px; */
+      flex-wrap: nowrap;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
   }
+}
 
   .comic-gallery img {
     cursor: pointer;
     width: 100px;
-    height: auto;
+    height: 200px;
     transition: transform 0.3s ease;
     border: 1px solid #ccc;
     border-radius: 5px;
@@ -20,21 +24,24 @@
     transform: scale(1.1);
   }
 
-  .progress-container {
-    position: relative;
-    width: 100%;
-    height: 22px;
-    background-color: #f3f3f3;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    overflow: hidden;
-    margin-top: 20px;
-  }
+
+  .progress-container{
+        display: flex;
+        position: absolute;
+        width: 700px;
+        height: 25px;
+        background-color: #f3f3f3;
+        border: 1px solid #ccc;
+        border-radius: 50px;
+        margin-top: 400px;
+        margin-bottom: 20px;
+    }
 
   .progress-bar {
     height: 100%;
     background-color: red;
     transition: width 0.3s ease;
+    border-radius: 50px;
   }
 
   .progress-text {
@@ -45,29 +52,44 @@
     color: #000;
     font-weight: bold;
     line-height: 30px;
+  }
+
+  .comic-gallery .description p:first-child {
+
+    color: black;
+    font-weight: bold;
+    font-family: 'Raleway', sans-serif;
+  }
+
+  p{
+    margin : 0;
+    padding: 0;
   }
 }
 
 @media (max-width: 768px) {
   .comic-gallery {
     display: flex;
-    gap: 10px;
     margin-bottom: 20px;
     flex-wrap: nowrap;
     flex-direction: column;
+    margin: 50px;
+    height: auto;
+    width: 200px;
+
   }
 
   .comic-gallery img {
     cursor: pointer;
-    width: auto;
-    height: auto;
+
     transition: transform 0.3s ease;
     border: 1px solid #ccc;
     border-radius: 5px;
   }
 
-  .comic-gallery img:hover {
+  .comic-gallery:hover {
     transform: scale(1.1);
+    padding: 20px;
   }
 
   .progress-container {
@@ -76,15 +98,16 @@
     height: 22px;
     background-color: #f3f3f3;
     border: 1px solid #ccc;
-    border-radius: 5px;
-    overflow: hidden;
+    border-radius: 50px;
     margin-top: 20px;
+
   }
 
   .progress-bar {
     height: 100%;
     background-color: red;
     transition: width 0.3s ease;
+    border-radius: 50px;
   }
 
   .progress-text {
@@ -96,29 +119,43 @@
     font-weight: bold;
     line-height: 30px;
   }
-}
 
+  .comic-gallery .description p:first-child {
+
+    color: black;
+    font-weight: bold;
+    font-family: 'Raleway', sans-serif;
+  }
+
+  p{
+    margin : 0;
+    padding: 0;
+  }
+
+
+}
 
 @media (max-width: 425px) {
   .comic-gallery {
     display: flex;
-    gap: 10px;
     margin-bottom: 20px;
     flex-wrap: nowrap;
     flex-direction: column;
+    width: 250px;
+    height: 500px;
   }
 
   .comic-gallery img {
     cursor: pointer;
     width: auto;
-    height: auto;
+    height: 500px;
     transition: transform 0.3s ease;
     border: 1px solid #ccc;
     border-radius: 5px;
   }
 
-  .comic-gallery img:hover {
-    transform: scale(1.1);
+  .comic-gallery:hover {
+    transform: scale(1.2);
   }
 
   .progress-container {
@@ -127,8 +164,7 @@
     height: 22px;
     background-color: #f3f3f3;
     border: 1px solid #ccc;
-    border-radius: 5px;
-    overflow: hidden;
+    border-radius: 50px;
     margin-top: 20px;
   }
 
@@ -136,6 +172,7 @@
     height: 100%;
     background-color: red;
     transition: width 0.3s ease;
+    border-radius: 50px;
   }
 
   .progress-text {
@@ -146,5 +183,19 @@
     color: #000;
     font-weight: bold;
     line-height: 30px;
+  }
+
+  .comic-gallery .description p:first-child {
+    font-size: 1.2em;
+    color: black;
+    font-weight: bold;
+  }
+  .description {
+
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    align-items: baseline;
+    gap: 20px;
   }
 }

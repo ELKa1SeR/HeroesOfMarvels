@@ -1,4 +1,4 @@
-
+@media (min-width: 1024px) {
 .container {
   display: flex;
   flex-direction: column;
@@ -89,12 +89,20 @@
 }
 
 .comics{
-  display: flex;
-  padding-left: 150px;
-  padding-right: 180px;
-  padding-top: 30px;
-  flex-direction: column;
-}
+
+        display: flex;
+        padding-left: 150px;
+        padding-right: 180px;
+        padding-top: 30px;
+
+        overflow-x: scroll;
+
+
+        flex-wrap: wrap;
+        padding-bottom: 50px;
+
+ }
+
 
 
 .Tcomics{
@@ -105,7 +113,11 @@
   font-weight: bolder;
 }
 
-
+.comic{
+  display: flex;
+    gap: 10px;
+}
+}
 
 @media (max-width: 768px) {
   .container {
@@ -209,6 +221,18 @@
     line-height: 30px;
     font-weight: bolder;
   }
+
+
+     .comic{
+        display: inline-flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        width: auto;
+        height: 200px;
+    }
+
+
 
 
 }
