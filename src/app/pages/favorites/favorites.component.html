@@ -1,0 +1,31 @@
+<div class="container">
+  <app-cabecera></app-cabecera>
+
+ <div class="body">
+
+    <div class="title">
+      <h1>Favoritos</h1>
+    </div>
+
+    <div class="search">
+      <!-- el componente search tiene un input que este se le pasa llamado al nombre de la variable
+      entre corchetes y le pasamos el formulario al hijo para que se lo asigne a la etiqueta form
+
+      Es mala práctica pasar de hijo a padre, siempre debemos pasar de padre a hijo
+      -->
+      <app-search-bar [searchForm]="searchForm"></app-search-bar>
+    </div>
+    <div class="result">
+      <app-result-component [heroes]="heroesFiltered"></app-result-component>
+    </div>
+
+    <div class="card">
+      <app-character-model
+      [heroes]="heroesFiltered"
+      [searchForm]="searchForm"
+       ></app-character-model>
+    </div>
+
+  </div>
+
+</div>

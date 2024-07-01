@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { HeroResult } from '../../../interfaces/hero.interface';
 import { MarvelApiService } from '../../../services/marvel-api.service';
 import { Router } from '@angular/router';
@@ -13,6 +13,7 @@ import { Router } from '@angular/router';
 })
 export class ResultComponentComponent implements OnInit {
 
+  @Input()
   heroes: HeroResult[] = [];
 
   constructor(private marvelApiService: MarvelApiService, private router: Router) {}

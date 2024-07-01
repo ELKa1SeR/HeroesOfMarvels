@@ -18,6 +18,8 @@ import { MarvelApiService } from './services/marvel-api.service';
 import { CharacterCardComponent } from './components/character-card/character-card.component';
 import { CharacterModelComponent } from './models/character.model/character.model.component';
 import { DetailModelComponent } from './models/detail.model/detail.model';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FavoritesComponent } from './pages/favorites/favorites.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +36,7 @@ import { DetailModelComponent } from './models/detail.model/detail.model';
       CharacterCardComponent,
       CharacterModelComponent,
       DetailModelComponent,
+      FavoritesComponent,
 
   ],
   providers: [MarvelApiService],
@@ -42,6 +45,8 @@ import { DetailModelComponent } from './models/detail.model/detail.model';
       BrowserModule,
       AppRoutingModule,
       HttpClientModule,
+      FormsModule,
+      ReactiveFormsModule,
 
 
 

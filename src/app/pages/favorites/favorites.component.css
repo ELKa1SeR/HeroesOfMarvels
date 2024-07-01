@@ -1,0 +1,30 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  width: 100%;
+
+}
+
+
+.body{
+  margin-right: 3%;
+  margin-left: 3%;
+}
+
+.search {
+width: 100%;
+
+}
+
+.result{
+  display: flex;
+}
+
+.card{
+  padding-top: 20px;
+
+  width: 100%;
+
+}
