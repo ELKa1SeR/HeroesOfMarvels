@@ -17,9 +17,9 @@ export class HomeComponent implements OnInit {
 
   heroes: HeroResult[] = [];
   heroesFiltered: HeroResult[] = [];
-  currentPage: number = 1;
+  currentPage: number = 0;
   limit: number = 50;
-  totalPages: number = 0;
+  totalPages: number = 32;
 
   constructor(
     private readonly marvelApiService: MarvelApiService,
