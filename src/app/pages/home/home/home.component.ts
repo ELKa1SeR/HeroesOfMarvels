@@ -17,6 +17,9 @@ export class HomeComponent implements OnInit {
 
   heroes: HeroResult[] = [];
   heroesFiltered: HeroResult[] = [];
+  currentPage: number = 1;
+  limit: number = 50;
+  totalPages: number = 0;
 
   constructor(
     private readonly marvelApiService: MarvelApiService,
@@ -24,41 +27,72 @@ export class HomeComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    // sirve para subscribirme a los cambios de un formulario reactivo
     this.searchForm.valueChanges.subscribe((value) => {
-      // hacemos el if para que no venga vacio porque puede contener nullos
       if (!value.search) {
-        // si no escribe nada el usuario volvemos al filtrado original
-        this.heroesFiltered = [...this.heroes]
-        return
+        this.heroesFiltered = [...this.heroes];
+        return;
       }
 
       const term = value.search.trim().toLowerCase();
-      // el filter genera un nuevo array con los datos que cumplan esa condicion
       this.heroesFiltered = this.heroes.filter(hero =>
         hero.name.toLowerCase().includes(term)
-      )
-    })
+      );
+    });
 
-    this.marvelApiService.getHeroes().subscribe((heroes) => {
-      console.log('Heroes received:', heroes);  // Esto debería mostrar una lista de héroes
-      this.heroes = heroes.map(chat => ({
-        ...chat
-      }))
-      // clona el array original para hacer el filtrado sobre el nuevo array
-      this.heroesFiltered = [...heroes]
+    this.loadHeroes();
+  }
+
+  loadHeroes() {
+    const offset = this.currentPage * this.limit;
+    this.marvelApiService.getHeroes(this.limit, offset).subscribe((heroes) => {
+      this.heroes = heroes;
+      this.heroesFiltered = [...heroes];
+      this.calculateTotalPages(); // Call this method to calculate total pages based on fetched data
     });
   }
 
-  onSelectedHero( hero: HeroResult) {
-    console.log(hero);
+  calculateTotalPages() {
 
-    this.router.navigate(['/hero',hero.id]);
+    const totalHeroes = 1564;
+    this.totalPages = Math.ceil(totalHeroes / this.limit);
   }
 
+  onSelectedHero(hero: HeroResult) {
+    this.router.navigate(['/hero', hero.id]);
+  }
 
   onSearch(term: string) {
     this.searchTerm = term;
+  }
+
+  nextPage() {
+    if (this.currentPage < this.totalPages - 1) {
+      this.currentPage++;
+      this.loadHeroes();
     }
+  }
+
+  previousPage() {
+    if (this.currentPage > 0) {
+      this.currentPage--;
+      this.loadHeroes();
+    }
+  }
+
+
+
+
+
+
+  // onSelectedHero( hero: HeroResult) {
+  //   console.log(hero);
+
+  //   this.router.navigate(['/hero',hero.id]);
+  // }
+
+
+  // onSearch(term: string) {
+  //   this.searchTerm = term;
+  //   }
 
 }
